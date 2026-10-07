@@ -2,6 +2,8 @@
 // Worker, which saves each one to the private GitHub leads repo.
 const LEADS_ENDPOINT = "https://paid-to-care-leads.paidtocare.workers.dev";
 const FALLBACK_EMAIL = "derekdesouza6@gmail.com";
+// Where doulas forward their MassHealth application package.
+const HELP_EMAIL = "derekdesouza6@gmail.com";
 
 (function () {
   const mount = document.getElementById("leadform");
@@ -68,8 +70,25 @@ const FALLBACK_EMAIL = "derekdesouza6@gmail.com";
         body: JSON.stringify({ ...d, consent: true, wants_help: !!(form.wants_help && form.wants_help.checked), page: location.pathname.split("/").pop() || "index.html" }),
       });
       if (!r.ok) throw new Error((await r.json().catch(() => ({}))).error || "error");
+      const wantedHelp = !!(form.wants_help && form.wants_help.checked);
       form.reset();
-      show("Thanks! We got your message and will get back to you soon.", true);
+      if (wantedHelp) {
+        form.style.display = "none";
+        const next = document.createElement("div");
+        next.className = "next-steps";
+        next.innerHTML = `<h3>Thanks! Here's what happens next</h3>
+          <ol>
+            <li><b>Within 2 days</b>, we'll email you a short agreement and a few questions about your training and contact details. Nothing sensitive.</li>
+            <li><b>Once you have your NPI number</b>, request your application package from MassHealth. It takes about 2 minutes: <a href="https://masshealth.ehs.state.ma.us/ProviderSelfService/Home/ApplicationRequest/" target="_blank" rel="noopener">MassHealth's request form</a>.</li>
+            <li><b>When MassHealth emails you the package</b>, forward that email to <b>${HELP_EMAIL}</b>.</li>
+            <li>We fill in your forms and send them back for you to review, sign and mail.</li>
+          </ol>
+          <p>Questions anytime: ${HELP_EMAIL}</p>`;
+        mount.appendChild(next);
+        next.scrollIntoView({ behavior: "instant", block: "start" });
+      } else {
+        show("Thanks! We got your message and will get back to you soon.", true);
+      }
     } catch (err) {
       show(`Sorry, that didn't go through. Please email us at ${FALLBACK_EMAIL}.`);
     } finally {

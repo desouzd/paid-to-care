@@ -182,3 +182,10 @@ footer p { margin: 0 0 10px; max-width: 820px; }
 a.go-link { font-weight: 600; text-decoration: none; border-bottom: 2px solid var(--sky-line); padding-bottom: 1px; }
 a.go-link:hover { border-bottom-color: var(--accent); }
 .step-links .alt { display: block; margin-top: 6px; font-size: 14px; color: var(--muted); }
+
+/* After a free-help request */
+.next-steps { background: var(--white); border: 1px solid var(--sky-line); border-left: 3px solid var(--accent); border-radius: 4px; padding: 20px 22px; }
+.next-steps h3 { font-size: 22px; margin: 0 0 10px; }
+.next-steps ol { margin: 0 0 10px; padding-left: 20px; }
+.next-steps li { margin: 8px 0; }
+.next-steps p { margin: 0; color: var(--muted); font-size: 15px; }
