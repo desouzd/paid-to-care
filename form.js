@@ -76,13 +76,9 @@ const HELP_EMAIL = "derekdesouza6@gmail.com";
         form.style.display = "none";
         const next = document.createElement("div");
         next.className = "next-steps";
-        next.innerHTML = `<h3>Thanks! Here's what happens next</h3>
-          <ol>
-            <li><b>Within 2 days</b>, we'll email you a short agreement and a few questions about your training and contact details. Nothing sensitive.</li>
-            <li><b>Once you have your NPI number</b>, request your application package from MassHealth. It takes about 2 minutes: <a href="https://masshealth.ehs.state.ma.us/ProviderSelfService/Home/ApplicationRequest/" target="_blank" rel="noopener">MassHealth's request form</a>.</li>
-            <li><b>When MassHealth emails you the package</b>, forward that email to <b>${HELP_EMAIL}</b>.</li>
-            <li>We fill in your forms and send them back for you to review, sign and mail.</li>
-          </ol>
+        next.innerHTML = `<h3>Thanks! Next step: the questionnaire</h3>
+          <p style="color:inherit;font-size:16px;margin:0 0 12px">To get free help, fill out our short questionnaire (about 5 minutes). It asks for basic details only, never your Social Security number, tax ID, bank or client information.</p>
+          <a class="btn" href="intake.html">Start the questionnaire</a>
           <p>Questions anytime: ${HELP_EMAIL}</p>`;
         mount.appendChild(next);
         next.scrollIntoView({ behavior: "instant", block: "start" });

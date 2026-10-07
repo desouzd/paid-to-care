@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Free-help questionnaire · Paid to Care MA</title>
+<meta name="description" content="Answer a few non-sensitive questions so we can pre-fill your MassHealth doula application forms.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Crect width=%2232%22 height=%2232%22 rx=%228%22 fill=%22%231d4f91%22/%3E%3Cpath d=%22M9 16.5l4.5 4.5L23 11.5%22 fill=%22none%22 stroke=%22white%22 stroke-width=%223%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22/%3E%3C/svg%3E">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Free-help questionnaire · Paid to Care MA">
+<meta property="og:description" content="Answer a few non-sensitive questions so we can pre-fill your MassHealth doula application forms.">
+<meta property="og:image" content="https://desouzd.github.io/paid-to-care/img/pregnant.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Public+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=14">
+</head><body>
+<header class="top"><div class="wrap">
+  <a class="logo" href="index.html"><span class="name">Paid to <span>Care</span></span><small>Massachusetts</small></a>
+  <nav class="navlinks"><a href="index.html">Home</a><a href="doulas.html" class="on">Doulas</a><a href="coaches.html">Recovery coaches</a><a href="index.html#about">About</a><a href="doulas.html#help">Contact</a></nav>
+</div></header>
+
+<main>
+  <section class="page-head"><div class="wrap narrow">
+    <p class="label"><a href="doulas.html#free-help">Free help</a> › Questionnaire</p>
+    <h1>Free-help questionnaire</h1>
+    <p>Your answers are used to pre-fill your official MassHealth doula application forms. It takes about 5 minutes. You can leave anything you don't know yet blank, except the starred fields.</p>
+  </div></section>
+
+  <section class="guide-body"><div class="wrap narrow">
+    <div class="safe">
+      <b>Nothing sensitive, ever.</b>
+      <p>This form never asks for your <b>Social Security number, tax ID, date of birth, bank account or routing number, driver's license, or any client information</b>. Please don't type them anywhere here. You'll add those yourself, by hand, on the official forms before you sign and mail them.</p>
+    </div>
+
+    <form class="lead intake" novalidate>
+      <fieldset><legend>About you</legend>
+        <div class="f3"><label><span>Legal first name <span class="req">*</span></span><input name="first_name" type="text" required autocomplete="given-name" maxlength="60"></label><label>Middle name<input name="middle_name" type="text" autocomplete="additional-name" maxlength="60"></label><label><span>Legal last name <span class="req">*</span></span><input name="last_name" type="text" required autocomplete="family-name" maxlength="60"></label></div>
+        <label><span>Other names you've used</span><span class="hint">Maiden name or nickname, if any</span><input name="other_names" type="text" maxlength="150"></label>
+        <div class="f2"><label><span>Email <span class="req">*</span></span><input name="email" type="email" required autocomplete="email" maxlength="200"></label><label><span>Phone <span class="req">*</span></span><input name="phone" type="tel" required autocomplete="tel" maxlength="30"></label></div>
+      </fieldset>
+
+      <fieldset><legend>Where you work</legend>
+        <label><span>Mailing address <span class="req">*</span></span><input name="street" type="text" required autocomplete="street-address" maxlength="150"></label>
+        <div class="f3"><label><span>City <span class="req">*</span></span><input name="city" type="text" required autocomplete="address-level2" maxlength="80"></label><label><span>State <span class="req">*</span></span><input name="state" type="text" required autocomplete="address-level1" maxlength="20" value="MA"></label><label><span>ZIP code <span class="req">*</span></span><input name="zip" type="text" required autocomplete="postal-code" maxlength="12"></label></div>
+        <label>Practice address, if different<textarea name="practice_address" rows="2" maxlength="300"></textarea></label>
+        <label>Towns or counties you serve<input name="service_area" type="text" maxlength="300" placeholder="e.g. Boston, Cambridge, Suffolk County"></label>
+        <label>Languages you provide services in<input name="languages" type="text" maxlength="200" placeholder="e.g. English, Spanish"></label>
+      </fieldset>
+
+      <fieldset><legend>Your practice</legend>
+        <label>Business name, if you have one<input name="business_name" type="text" maxlength="150"></label>
+        <div class="f2">
+          <label>How will you practice?<select name="practice_type"><option value="">Choose one</option><option value="solo">On my own</option><option value="group">Only as part of a group practice</option><option value="both">Both</option></select></label>
+          <label>Group practice name, if any<input name="group_name" type="text" maxlength="150"></label>
+        </div>
+      </fieldset>
+
+      <fieldset><legend>NPI and training</legend>
+        <label><span>NPI number</span><span class="hint">10 digits. NPI numbers are public, so this one is fine to share. Leave blank if you don't have it yet.</span><input name="npi" type="text" inputmode="numeric" maxlength="10"></label>
+        <div class="f2">
+          <label>MassHealth Doula Provider Training<select name="mh_training"><option value="">Choose one</option><option value="done">Completed</option><option value="in_progress">In progress</option><option value="not_started">Not started</option><option value="live_session">Attended a full live session</option></select></label>
+          <label>Date completed, if done<input name="mh_training_date" type="date" ></label>
+        </div>
+        <label><span>Which proof of training will you use? <span class="req">*</span></span><span class="hint"><a href="options.html#proof" target="_blank">Compare the options</a></span>
+          <select name="pathway" required><option value="">Choose one</option><option value="training">A doula training certificate or certifying organization</option><option value="experience">Recommendations (experience pathway)</option><option value="not_sure">Not sure yet</option></select></label>
+        <div class="f2"><label>Doula training program, if any<input name="training_program" type="text" maxlength="200"></label><label>Date you finished it<input name="training_date" type="date" ></label></div>
+        <label>Certifying organization, if any<input name="certifying_org" type="text" maxlength="150" placeholder="e.g. DONA International"></label>
+        <label>If using recommendations: do you have 3 past clients and 2 health care providers who could recommend you?<select name="recommenders_ready"><option value="">Choose one</option><option value="yes">Yes</option><option value="some">Some of them</option><option value="no">Not yet</option></select><span class="hint">We'll ask for their contact details later, only if you choose this path.</span></label>
+      </fieldset>
+
+      <fieldset><legend>Anything else</legend>
+        <label>Questions or anything we should know<textarea name="notes" rows="3" maxlength="2000"></textarea></label>
+      </fieldset>
+
+      <fieldset><legend>Agreement</legend>
+        <label class="check"><input type="checkbox" name="agree"> I've read and agree to the <a href="agreement.html" target="_blank">free help agreement</a>, including allowing you to be listed as a contact on my MassHealth enrollment application.</label>
+        <label><span>Type your full name to sign <span class="req">*</span></span><input name="esign" type="text" required maxlength="120" autocomplete="name"></label>
+      </fieldset>
+
+      <label class="hp" aria-hidden="true">Website<input name="website" tabindex="-1" autocomplete="off"></label>
+      <button class="btn" type="submit">Submit questionnaire</button>
+      <p class="form-msg" role="status" aria-live="polite"></p>
+    </form>
+    <div class="next-steps" id="intake-done" hidden>
+      <h3>Thank you! Here's what's next</h3>
+      <ol>
+        <li><b>Once you have your NPI number</b>, request your application package from MassHealth (about 2 minutes): <a href="https://masshealth.ehs.state.ma.us/ProviderSelfService/Home/ApplicationRequest/" target="_blank" rel="noopener">MassHealth's request form</a>.</li>
+        <li><b>When MassHealth emails you the package</b>, forward that email to <b>derekdesouza6@gmail.com</b>.</li>
+        <li>We pre-fill your forms from your answers and send them back. You review them, add your Social Security and bank details by hand, sign, and mail them to MassHealth.</li>
+      </ol>
+      <p>Questions anytime: derekdesouza6@gmail.com</p>
+    </div>
+  </div></section>
+</main>
+<footer><div class="wrap">
+  <p>Paid to Care MA is an independent resource and is not affiliated with MassHealth, Maximus, the Department of Public Health or the Commonwealth of Massachusetts. This is general information, not legal advice.</p>
+  <p>Privacy: this site doesn't use cookies or analytics.</p>
+</div></footer>
+<script src="nav.js?v=2"></script>
+<script src="intake.js?v=1"></script>
+</body>
+</html>

@@ -189,3 +189,17 @@ a.go-link:hover { border-bottom-color: var(--accent); }
 .next-steps ol { margin: 0 0 10px; padding-left: 20px; }
 .next-steps li { margin: 8px 0; }
 .next-steps p { margin: 0; color: var(--muted); font-size: 15px; }
+
+/* Questionnaire + agreement */
+.safe { background: #eef7f0; border-left: 3px solid #1d6b3a; padding: 16px 20px; margin: 0 0 30px; border-radius: 4px; }
+.safe b { color: #1d6b3a; }
+.safe p { margin: 6px 0 0; font-size: 16px; }
+form.intake fieldset { border: 0; border-top: 1px solid var(--line); padding: 22px 0 6px; margin: 0; display: grid; gap: 16px; }
+form.intake legend { font-family: var(--serif); font-size: 22px; font-weight: 600; color: var(--ink); padding: 0 0 4px; }
+form.intake .f3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+form.intake .req { color: #a32a1d; }
+form.intake .hint { display: block; font-weight: 400; font-size: 14px; color: var(--muted); }
+form.intake input.sensitive { border-color: #a32a1d; outline: 3px solid #f6d9d5; }
+.agreement h3 { font-size: 22px; margin: 26px 0 6px; }
+.agreement p, .agreement li { font-size: 16px; }
+@media (max-width: 640px) { form.intake .f3 { grid-template-columns: 1fr; } }
