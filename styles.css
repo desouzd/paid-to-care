@@ -145,10 +145,18 @@ footer { color: var(--muted); font-size: 13px; padding: 20px 0 48px; border-top:
              color: var(--white); background: var(--accent); border-radius: 99px; padding: 5px 11px; margin-top: 2px; }
 .phase h3 { margin: 0 0 2px; font-size: 19px; font-weight: 800; }
 .phase p { margin: 0; color: var(--muted); font-size: 15px; }
-.wecan { display: table; font-size: 12px; font-weight: 700; color: var(--accent); background: var(--sky);
-         border: 1px solid var(--sky-2); border-radius: 99px; padding: 2px 10px; margin: 0 0 8px; }
-.band.sky .wecan { background: var(--white); }
-.wecan::before { content: "✓ "; }
+.wecan { position: absolute; top: 14px; right: 14px; width: 30px; height: 30px; border-radius: 50%;
+         display: grid; place-items: center; color: var(--accent); background: var(--sky); border: 1px solid var(--sky-2);
+         cursor: help; outline: none; }
+.wecan svg { width: 16px; height: 16px; }
+.wecan::after { content: attr(data-tip); position: absolute; top: calc(100% + 8px); right: 0; white-space: nowrap;
+                background: var(--ink); color: var(--white); font-size: 13px; font-weight: 600; padding: 7px 11px;
+                border-radius: 8px; box-shadow: var(--shadow); opacity: 0; transform: translateY(-4px);
+                pointer-events: none; transition: opacity .15s, transform .15s; z-index: 5; }
+.wecan:hover::after, .wecan:focus::after { opacity: 1; transform: none; }
+.wecan:hover, .wecan:focus-visible { background: var(--accent); color: var(--white); border-color: var(--accent); }
+ol.steps > li { position: relative; }
+ol.steps > li:has(.wecan) .step-head { padding-right: 36px; }
 .diy { font-weight: 700; margin-left: 8px; white-space: nowrap; }
 .navlinks a.on { color: var(--accent); }
 .hero section.guide h2 { font-size: 36px; }
