@@ -1,6 +1,6 @@
 // "Get help" form, shared by every page. Submissions go to the Cloudflare
 // Worker, which saves each one to the private GitHub leads repo.
-const LEADS_ENDPOINT = "https://paid-to-care-leads.REPLACE_ME.workers.dev";
+const LEADS_ENDPOINT = "https://paid-to-care-leads.paidtocare.workers.dev";
 const FALLBACK_EMAIL = "derekdesouza6@gmail.com";
 
 (function () {
