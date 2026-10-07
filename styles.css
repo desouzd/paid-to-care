@@ -138,3 +138,18 @@ footer { color: var(--muted); font-size: 13px; padding: 20px 0 48px; border-top:
   .mission blockquote { font-size: 21px; } .big { font-size: 24px; } .btn.ghost { margin-left: 0; }
 }
 @media (max-width: 420px) { .howsteps { grid-template-columns: 1fr; } }
+
+/* Guide phases */
+.phase { display: flex; gap: 14px; align-items: flex-start; margin: 30px 0 4px; }
+.phase-num { flex: none; font-size: 12px; font-weight: 800; letter-spacing: .05em; text-transform: uppercase;
+             color: var(--white); background: var(--accent); border-radius: 99px; padding: 5px 11px; margin-top: 2px; }
+.phase h3 { margin: 0 0 2px; font-size: 19px; font-weight: 800; }
+.phase p { margin: 0; color: var(--muted); font-size: 15px; }
+.wecan { display: table; font-size: 12px; font-weight: 700; color: var(--accent); background: var(--sky);
+         border: 1px solid var(--sky-2); border-radius: 99px; padding: 2px 10px; margin: 0 0 8px; }
+.band.sky .wecan { background: var(--white); }
+.wecan::before { content: "✓ "; }
+.diy { font-weight: 700; margin-left: 8px; white-space: nowrap; }
+.navlinks a.on { color: var(--accent); }
+.hero section.guide h2 { font-size: 36px; }
+@media (max-width: 640px) { .hero section.guide h2 { font-size: 27px; } }
