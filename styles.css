@@ -161,3 +161,6 @@ ol.steps > li:has(.wecan) .step-head { padding-right: 36px; }
 .navlinks a.on { color: var(--accent); }
 .hero section.guide h2 { font-size: 36px; }
 @media (max-width: 640px) { .hero section.guide h2 { font-size: 27px; } }
+.info { background: var(--white); border: 1px solid var(--sky-2); border-left: 4px solid var(--accent); border-radius: 12px; padding: 14px 16px; margin: 22px 0 0; }
+.info b { color: var(--ink); }
+.info p { margin: 4px 0 0; font-size: 15px; color: var(--text); }
