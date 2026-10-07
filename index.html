@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Paid to Care MA</title>
+<meta name="description" content="Plain-language, step-by-step guides for Massachusetts doulas and recovery coaches to get certified, enrolled and paid.">
+<style>
+  :root {
+    --bg: #fbfaf7; --surface: #ffffff; --text: #1d1f23; --muted: #5b6270; --border: #e6e2da;
+    --brand: #2f6f5e; --brand-soft: #e5f1ec; --brand-text: #ffffff; --accent: #b4572f;
+    --warn-bg: #fff5e6; --warn: #8a5300; --done: #2f6f5e;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #121416; --surface: #1b1e21; --text: #eceae6; --muted: #a2a8b2; --border: #2c3035;
+      --brand: #6cc3a6; --brand-soft: #1d3029; --brand-text: #0f1513; --accent: #e8915f;
+      --warn-bg: #2f2410; --warn: #f0b45a; --done: #6cc3a6;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--bg); color: var(--text);
+         font: 16px/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; }
+  a { color: var(--brand); }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 16px; }
+  header.top { border-bottom: 1px solid var(--border); background: var(--surface); }
+  header.top .wrap { display: flex; align-items: center; justify-content: space-between; height: 58px; }
+  .logo { font-weight: 700; font-size: 18px; color: var(--text); text-decoration: none; }
+  .logo span { color: var(--brand); }
+  .navlinks a { margin-left: 16px; font-size: 14px; color: var(--muted); text-decoration: none; }
+  .hero { padding: 44px 0 24px; }
+  .hero h1 { font-size: 32px; line-height: 1.2; margin: 0 0 12px; }
+  .hero p { color: var(--muted); font-size: 18px; margin: 0; }
+  .choose { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 28px 0 10px; }
+  .choice { display: block; background: var(--surface); border: 1px solid var(--border); border-radius: 14px;
+            padding: 18px; text-decoration: none; color: var(--text); transition: border-color .15s; }
+  .choice:hover { border-color: var(--brand); }
+  .choice b { display: block; font-size: 18px; margin-bottom: 4px; }
+  .choice span { color: var(--muted); font-size: 14px; }
+  section.guide { padding: 30px 0 10px; border-top: 1px solid var(--border); margin-top: 26px; }
+  section.guide h2 { font-size: 26px; margin: 0 0 6px; }
+  .lede { color: var(--muted); margin: 0 0 16px; }
+  .facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 16px 0; }
+  .fact { background: var(--brand-soft); border-radius: 12px; padding: 12px; }
+  .fact b { display: block; font-size: 20px; }
+  .fact span { font-size: 13px; color: var(--muted); }
+  .progress { display: flex; align-items: center; gap: 10px; margin: 18px 0 8px; font-size: 14px; color: var(--muted); }
+  .bar { flex: 1; height: 8px; background: var(--border); border-radius: 99px; overflow: hidden; }
+  .bar i { display: block; height: 100%; width: 0; background: var(--brand); transition: width .2s; }
+  ol.steps { list-style: none; padding: 0; margin: 0; counter-reset: s; }
+  ol.steps li { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 14px 16px; margin: 10px 0; }
+  ol.steps li.done { border-color: var(--done); }
+  .step-head { display: flex; gap: 12px; align-items: flex-start; cursor: pointer; }
+  .step-head input { width: 22px; height: 22px; margin: 2px 0 0; accent-color: var(--brand); flex: none; cursor: pointer; }
+  .step-head h3 { font-size: 17px; margin: 0; }
+  li.done .step-head h3 { text-decoration: line-through; color: var(--muted); }
+  .step-body { margin: 8px 0 0 34px; font-size: 15px; }
+  .step-body ul { margin: 6px 0; padding-left: 18px; }
+  .note { background: var(--warn-bg); color: var(--warn); border-radius: 10px; padding: 10px 12px; font-size: 14px; margin: 12px 0; }
+  .help { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 20px; margin: 30px 0; }
+  .help h2 { margin: 0 0 6px; font-size: 22px; }
+  .btn { display: inline-block; background: var(--brand); color: var(--brand-text); border: 0; border-radius: 10px;
+         padding: 11px 18px; font: inherit; font-weight: 600; text-decoration: none; cursor: pointer; margin-top: 10px; }
+  .src { font-size: 13px; color: var(--muted); }
+  .src li { margin: 3px 0; }
+  footer { color: var(--muted); font-size: 13px; padding: 24px 0 40px; border-top: 1px solid var(--border); margin-top: 20px; }
+  @media (max-width: 600px) {
+    .hero h1 { font-size: 26px; } .choose { grid-template-columns: 1fr; } .facts { grid-template-columns: 1fr; }
+    .navlinks { display: none; } .step-body { margin-left: 0; }
+  }
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="logo" href="#">Paid to <span>Care</span> MA</a>
+  <nav class="navlinks"><a href="#doula">Doulas</a><a href="#coach">Recovery coaches</a><a href="#help">Get help</a></nav>
+</div></header>
+
+<main class="wrap">
+  <div class="hero">
+    <h1>Get certified, enrolled and paid — without the paperwork headache.</h1>
+    <p>Plain-English, step-by-step guides for Massachusetts doulas and recovery coaches. Check off steps as you go; your progress is saved on this device.</p>
+    <div class="choose">
+      <a class="choice" href="#doula"><b>I'm a doula</b><span>Enroll with MassHealth and get paid for supporting families.</span></a>
+      <a class="choice" href="#coach"><b>I'm a recovery coach</b><span>Get certified, understand the new license, and where the pay comes from.</span></a>
+    </div>
+  </div>
+
+  <!-- DOULA GUIDE -->
+  <section class="guide" id="doula">
+    <h2>Doulas: getting paid by MassHealth</h2>
+    <p class="lede">Since December 8, 2023, MassHealth pays doulas who are enrolled as MassHealth providers. Here's how to get enrolled.</p>
+    <div class="facts">
+      <div class="fact"><b>$1,065</b><span>MassHealth rate for up to 8 visits plus labor support</span></div>
+      <div class="fact"><b>~2 hours</b><span>Required free MassHealth doula training</span></div>
+      <div class="fact"><b>18+</b><span>Minimum age for in-state doulas</span></div>
+    </div>
+    <div class="progress"><div class="bar"><i id="bar-doula"></i></div><span id="count-doula"></span></div>
+    <ol class="steps" data-guide="doula">
+      <li data-step="npi"><label class="step-head"><input type="checkbox"><h3>1. Get your free NPI number</h3></label>
+        <div class="step-body">An NPI is your 10-digit health-provider ID. Apply online for an <b>individual (Type 1)</b> NPI through NPPES. It's free and usually takes a few days.
+          <br><a href="https://nppes.cms.hhs.gov/" target="_blank" rel="noopener">Apply at NPPES →</a></div></li>
+      <li data-step="training"><label class="step-head"><input type="checkbox"><h3>2. Complete the MassHealth Doula Provider Training</h3></label>
+        <div class="step-body">A free online course, about 2 hours. <b>Save the completion certificate</b> — you must include it with your application.
+          <br><a href="https://masshealth.inquisiqlms.com/catalog/v2/Details.aspx?view=list&type=course&id=152" target="_blank" rel="noopener">Open the training →</a>
+          · <a href="https://www.mass.gov/doc/masshealth-doula-provider-training-instructions/download" target="_blank" rel="noopener">Instructions</a></div></li>
+      <li data-step="proof"><label class="step-head"><input type="checkbox"><h3>3. Gather proof of your doula training</h3></label>
+        <div class="step-body">You need <b>one</b> of these:
+          <ul>
+            <li>A certificate of completion from a doula training, or a letter from a doula certification organization, <b>plus</b> a signed attestation form saying the training covered the required skills; <b>or</b></li>
+            <li>Recommendations from <b>3 former clients</b> (paid or volunteer) and <b>2 licensed health care providers</b> (e.g. midwife, nurse, physician, social worker) who saw your work — all within the last 5 years.</li>
+          </ul>
+          <a href="https://www.mass.gov/doc/doula-certification-program-application-checklist/download" target="_blank" rel="noopener">Doula certification checklist →</a></div></li>
+      <li data-step="forms"><label class="step-head"><input type="checkbox"><h3>4. Fill out the MassHealth enrollment application</h3></label>
+        <div class="step-body">Use the official checklist so nothing is missing. Solo doulas use the <b>individual</b> checklist; doulas billing together use the <b>group practice</b> one.
+          <br><a href="https://www.mass.gov/doc/individual-doula-provider-application-checklist-0/download" target="_blank" rel="noopener">Individual checklist →</a>
+          · <a href="https://www.mass.gov/doc/doula-group-practice-application-checklist-0/download" target="_blank" rel="noopener">Group checklist</a>
+          · <a href="https://www.mass.gov/info-details/doula-initiative" target="_blank" rel="noopener">MassHealth Doula Initiative</a></div></li>
+      <li data-step="submit"><label class="step-head"><input type="checkbox"><h3>5. Submit your application</h3></label>
+        <div class="step-body">Send everything to MassHealth Provider Enrollment and Credentialing:
+          <ul><li><b>Fax:</b> (617) 988-8974</li><li><b>Mail:</b> PO Box 278, Quincy, MA 02171-0278</li></ul>
+          Keep a copy of everything you send and write down the date.</div></li>
+      <li data-step="approved"><label class="step-head"><input type="checkbox"><h3>6. Wait for approval before seeing MassHealth clients</h3></label>
+        <div class="step-body">MassHealth only pays for services on dates when you're already an enrolled provider — so don't start billable visits until you're approved.</div></li>
+      <li data-step="plans"><label class="step-head"><input type="checkbox"><h3>7. Check your clients' MassHealth health plans</h3></label>
+        <div class="step-body">Many MassHealth members are in a managed care plan (an ACO or MCO). These plans may have their own sign-up steps for doulas. Ask each plan your clients use how to join their network.</div></li>
+    </ol>
+    <p class="note">Rules can change. This guide summarizes official MassHealth materials as of October 2026 — always confirm with MassHealth before submitting.</p>
+  </section>
+
+  <!-- RECOVERY COACH GUIDE -->
+  <section class="guide" id="coach">
+    <h2>Recovery coaches: certification, the new license, and pay</h2>
+    <p class="lede">Massachusetts passed a law (Chapter 285 of the Acts of 2024, signed December 23, 2024) that creates a state license for recovery coaches and requires insurers to cover recovery coaching.</p>
+    <div class="facts">
+      <div class="fact"><b>Jan 1, 2026</b><span>All insured health plans must cover recovery coaching</span></div>
+      <div class="fact"><b>$0</b><span>Copay for clients — no cost-sharing or prior authorization</span></div>
+      <div class="fact"><b>60 hrs</b><span>Education required for the CARC certification</span></div>
+    </div>
+    <div class="progress"><div class="bar"><i id="bar-coach"></i></div><span id="count-coach"></span></div>
+    <ol class="steps" data-guide="coach">
+      <li data-step="academy"><label class="step-head"><input type="checkbox"><h3>1. Take a Recovery Coach Academy training</h3></label>
+        <div class="step-body">The CCAR Recovery Coach Academy is the standard starting training in Massachusetts and is offered by several organizations around the state.
+          <br><a href="https://massrec.org/" target="_blank" rel="noopener">Find trainings (MassRecovery) →</a></div></li>
+      <li data-step="carc"><label class="step-head"><input type="checkbox"><h3>2. Earn your CARC certification</h3></label>
+        <div class="step-body">The <b>Certified Addiction Recovery Coach (CARC)</b> credential comes from the Massachusetts Board of Substance Abuse Counselor Certification (MBSACC). You need:
+          <ul><li>A high school diploma or GED</li><li>60 hours of education across areas like advocacy, mentoring, recovery/wellness support and ethics</li><li>Any supervised experience and exam the board requires — check MBSACC's current rules</li></ul>
+          <a href="https://careersofsubstance.org/your-career/career-paths/recovery-coach-peer-worker" target="_blank" rel="noopener">Career path overview →</a></div></li>
+      <li data-step="license"><label class="step-head"><input type="checkbox"><h3>3. Watch for the new state license</h3></label>
+        <div class="step-body">The 2024 law moves recovery coach licensing to the Department of Public Health (DPH). Once DPH's licensing process is live, you'll likely need the license to use the "recovery coach" title and to be paid by insurers.
+          <br><a href="https://malegislature.gov/Laws/SessionLaws/Acts/2024/Chapter285" target="_blank" rel="noopener">Read Chapter 285 →</a>
+          · <a href="https://www.mass.gov/info-details/recovery-coach-commission-statute" target="_blank" rel="noopener">Recovery Coach Commission</a></div></li>
+      <li data-step="pay"><label class="step-head"><input type="checkbox"><h3>4. Understand how recovery coaching gets paid</h3></label>
+        <div class="step-body">
+          <ul>
+            <li><b>MassHealth</b> covers recovery coach services, mostly billed by licensed treatment programs and organizations that employ coaches. MassHealth's "peer recovery coach" role requires at least 2 years of sustained recovery.</li>
+            <li><b>Private insurance</b> must cover recovery coaching for plans starting or renewing on or after January 1, 2026, at rates no lower than MassHealth's — creating new paid positions.</li>
+          </ul>
+          In practice, most coaches are paid as employees of programs, hospitals or community organizations rather than billing insurance on their own.</div></li>
+      <li data-step="job"><label class="step-head"><input type="checkbox"><h3>5. Find a paid position</h3></label>
+        <div class="step-body">Look at treatment programs, emergency departments, community health centers and recovery community centers — the new insurance requirement means more of them can afford to hire coaches.
+          <br><a href="https://careersofsubstance.org/" target="_blank" rel="noopener">Careers of Substance job resources →</a></div></li>
+    </ol>
+    <p class="note">The licensing and insurance rules are new and still being put in place. Confirm details with DPH, MBSACC and your employer.</p>
+  </section>
+
+  <section class="help" id="help">
+    <h2>Stuck on paperwork?</h2>
+    <p>We're building a service that handles the forms, tracks your deadlines and follows up with MassHealth and insurers for you. Tell us what you're working on and we'll reach out.</p>
+    <a class="btn" id="helpbtn" href="#">Get help with my paperwork</a>
+  </section>
+
+  <section class="src">
+    <b>Official sources</b>
+    <ul>
+      <li><a href="https://www.mass.gov/doc/doula-services-regulation-effective-december-8-2023/download" target="_blank" rel="noopener">MassHealth doula services regulation (effective Dec 8, 2023)</a></li>
+      <li><a href="https://www.mass.gov/regulations/101-CMR-31900-rates-for-doula-services" target="_blank" rel="noopener">101 CMR 319.00: Rates for doula services</a></li>
+      <li><a href="https://www.mass.gov/info-details/doula-initiative" target="_blank" rel="noopener">Massachusetts Doula Initiative</a></li>
+      <li><a href="https://malegislature.gov/Laws/SessionLaws/Acts/2024/Chapter285" target="_blank" rel="noopener">Chapter 285 of the Acts of 2024</a></li>
+      <li><a href="https://malegislature.gov/PressRoom/Detail?pressReleaseId=160" target="_blank" rel="noopener">Fact sheet: substance use disorder treatment and recovery coach licensure</a></li>
+      <li><a href="https://www.mass.gov/doc/filing-guidance-notice-2025-f-coverage-for-opioid-antagonists-and-substance-use-recovery-coaches-pursuant-to-chapter-285-of-the-acts-of-2024/download" target="_blank" rel="noopener">Division of Insurance guidance on recovery coach coverage</a></li>
+    </ul>
+  </section>
+</main>
+
+<footer><div class="wrap">Paid to Care MA is an independent guide and is not affiliated with MassHealth or the Commonwealth of Massachusetts. This is general information, not legal advice. Last reviewed October 2026.</div></footer>
+
+<script>
+  // Where "Get help" requests go. Swap for a form link before publishing.
+  const CONTACT_EMAIL = "derekdesouza6@gmail.com";
+  document.getElementById("helpbtn").href = "mailto:" + CONTACT_EMAIL +
+    "?subject=" + encodeURIComponent("Help with doula / recovery coach paperwork") +
+    "&body=" + encodeURIComponent("I'm a (doula / recovery coach). I'm stuck on: \n\nBest way to reach me: ");
+
+  const KEY = "ptc-progress";
+  let saved = {};
+  try { saved = JSON.parse(localStorage.getItem(KEY) || "{}"); } catch (e) {}
+
+  function update(guide) {
+    const items = document.querySelectorAll(`[data-guide="${guide}"] li`);
+    let done = 0;
+    items.forEach(li => {
+      const on = !!saved[guide + ":" + li.dataset.step];
+      li.querySelector("input").checked = on;
+      li.classList.toggle("done", on);
+      if (on) done++;
+    });
+    document.getElementById("bar-" + guide).style.width = (100 * done / items.length) + "%";
+    document.getElementById("count-" + guide).textContent = `${done} of ${items.length} steps done`;
+  }
+
+  document.querySelectorAll("ol.steps").forEach(ol => {
+    const guide = ol.dataset.guide;
+    ol.addEventListener("change", e => {
+      const li = e.target.closest("li");
+      saved[guide + ":" + li.dataset.step] = e.target.checked;
+      try { localStorage.setItem(KEY, JSON.stringify(saved)); } catch (err) {}
+      update(guide);
+    });
+    update(guide);
+  });
+</script>
+</body>
+</html>
