@@ -164,3 +164,20 @@ ol.steps > li:has(.wecan) .step-head { padding-right: 36px; }
 .info { background: var(--white); border: 1px solid var(--sky-2); border-left: 4px solid var(--accent); border-radius: 12px; padding: 14px 16px; margin: 22px 0 0; }
 .info b { color: var(--ink); }
 .info p { margin: 4px 0 0; font-size: 15px; color: var(--text); }
+
+/* Get-help form */
+form.lead { text-align: left; max-width: 620px; margin: 22px auto 0; display: grid; gap: 14px; }
+form.lead .f2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+form.lead label { display: grid; gap: 6px; font-size: 14px; font-weight: 600; color: var(--ink); }
+form.lead input, form.lead select, form.lead textarea {
+  font: inherit; font-weight: 400; font-size: 15px; color: var(--text); background: var(--white);
+  border: 1px solid var(--sky-2); border-radius: 10px; padding: 10px 12px; width: 100%; }
+form.lead input:focus, form.lead select:focus, form.lead textarea:focus { outline: 3px solid var(--sky); border-color: var(--accent); }
+form.lead textarea { resize: vertical; }
+form.lead .check { display: flex; gap: 10px; align-items: flex-start; font-weight: 500; color: var(--muted); }
+form.lead .check input { width: 18px; height: 18px; margin-top: 2px; accent-color: var(--accent); flex: none; }
+form.lead .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+form.lead .btn { justify-self: start; margin-top: 0; }
+.form-msg { margin: 0; font-size: 14px; font-weight: 600; min-height: 1em; }
+.form-msg.ok { color: #137a3a; } .form-msg.bad { color: #b42318; }
+@media (max-width: 640px) { form.lead .f2 { grid-template-columns: 1fr; } }
