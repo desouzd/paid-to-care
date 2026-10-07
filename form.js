@@ -62,7 +62,7 @@ const FALLBACK_EMAIL = "derekdesouza6@gmail.com";
       });
       if (!r.ok) throw new Error((await r.json().catch(() => ({}))).error || "error");
       form.reset();
-      show("Thanks! We got your message and will reach out soon.", true);
+      show("Thanks! We got your message and will get back to you soon.", true);
     } catch (err) {
       show(`Sorry, that didn't go through. Please email us at ${FALLBACK_EMAIL}.`);
     } finally {
