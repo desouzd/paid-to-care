@@ -34,6 +34,7 @@ const FALLBACK_EMAIL = "derekdesouza6@gmail.com";
       <label>Phone (optional)<input name="phone" type="tel" autocomplete="tel" maxlength="30"></label>
       <label>Best way to reach you<select name="contact_pref"><option value="email">Email</option><option value="phone">Phone call</option><option value="text">Text</option></select></label>
     </div>
+    ${mount.hasAttribute("data-offer-help") ? `<label class="check"><input type="checkbox" name="wants_help"> I'd like free one-on-one help with my MassHealth paperwork.</label>` : ""}
     <label class="hp" aria-hidden="true">Website<input name="website" tabindex="-1" autocomplete="off"></label>
     <label class="check"><input type="checkbox" name="consent" required> It's OK to contact me about this. I won't include my Social Security number or client information.</label>
     <button class="btn" type="submit">Send</button>
@@ -43,6 +44,12 @@ const FALLBACK_EMAIL = "derekdesouza6@gmail.com";
   const form = mount.querySelector("form");
   const msg = form.querySelector(".form-msg");
   const show = (text, ok) => { msg.textContent = text; msg.className = "form-msg " + (ok ? "ok" : "bad"); };
+
+  // "Request free help" buttons tick the help box and move focus to the form.
+  document.querySelectorAll("[data-wants-help]").forEach(b => b.addEventListener("click", () => {
+    if (form.wants_help) form.wants_help.checked = true;
+    setTimeout(() => form.name.focus({ preventScroll: true }), 50);
+  }));
 
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
@@ -58,7 +65,7 @@ const FALLBACK_EMAIL = "derekdesouza6@gmail.com";
       const r = await fetch(LEADS_ENDPOINT, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...d, consent: true, page: location.pathname.split("/").pop() || "index.html" }),
+        body: JSON.stringify({ ...d, consent: true, wants_help: !!(form.wants_help && form.wants_help.checked), page: location.pathname.split("/").pop() || "index.html" }),
       });
       if (!r.ok) throw new Error((await r.json().catch(() => ({}))).error || "error");
       form.reset();
