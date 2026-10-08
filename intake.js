@@ -48,7 +48,7 @@
       done.scrollIntoView({ behavior: "instant", block: "start" });
     } catch (err) {
       show(err.message && err.message.startsWith("Please") || (err.message || "").startsWith("It looks")
-        ? err.message : "Sorry, that didn't go through. Please try again, or email derekdesouza6@gmail.com.");
+        ? err.message : "Sorry, that didn't go through. Please try again, or email paidtocarema@gmail.com.");
       btn.disabled = false; btn.textContent = "Submit questionnaire";
     }
   });
