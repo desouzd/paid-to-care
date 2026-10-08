@@ -38,13 +38,13 @@
       <fieldset><legend>About you</legend>
         <div class="f3"><label><span>Legal first name <span class="req">*</span></span><input name="first_name" type="text" required autocomplete="given-name" maxlength="60"></label><label>Middle name<input name="middle_name" type="text" autocomplete="additional-name" maxlength="60"></label><label><span>Legal last name <span class="req">*</span></span><input name="last_name" type="text" required autocomplete="family-name" maxlength="60"></label></div>
         <label><span>Other names you've used</span><span class="hint">Maiden name or nickname, if any</span><input name="other_names" type="text" maxlength="150"></label>
-        <label><span>Date of birth</span><span class="hint">Not sensitive. MassHealth's disclosure form asks for it. We keep it private.</span><input name="date_of_birth" type="date"></label>
+        <label><span>Date of birth <span class="req">*</span></span><span class="hint">Not sensitive. MassHealth's disclosure form asks for it. We keep it private.</span><input name="date_of_birth" type="date" required></label>
         <div class="f2"><label><span>Email <span class="req">*</span></span><input name="email" type="email" required autocomplete="email" maxlength="200"></label><label><span>Phone <span class="req">*</span></span><input name="phone" type="tel" required autocomplete="tel" maxlength="30"></label></div>
       </fieldset>
 
       <fieldset><legend>Where you work</legend>
         <label><span>Mailing address <span class="req">*</span></span><input name="street" type="text" required autocomplete="street-address" maxlength="150"></label>
-        <div class="f3"><label><span>City <span class="req">*</span></span><input name="city" type="text" required autocomplete="address-level2" maxlength="80"></label><label><span>State <span class="req">*</span></span><input name="state" type="text" required autocomplete="address-level1" maxlength="20" value="MA"></label><label><span>ZIP code <span class="req">*</span></span><input name="zip" type="text" required autocomplete="postal-code" maxlength="12"></label></div>
+        <div class="f3"><label><span>City <span class="req">*</span></span><span class="hint">Your town, e.g. Lawrence</span><input name="city" type="text" required autocomplete="address-level2" maxlength="80"></label><label><span>State <span class="req">*</span></span><input name="state" type="text" required autocomplete="address-level1" maxlength="20" value="MA"></label><label><span>ZIP code <span class="req">*</span></span><input name="zip" type="text" required autocomplete="postal-code" maxlength="12"></label></div>
         <label>Is your main practice location the same as your mailing address?<span class="hint">Most doulas who visit clients at home choose "Same." P.O. boxes can't be used as a practice location.</span>
           <select name="psl_same"><option value="yes">Same as my mailing address</option><option value="no">Different address</option></select></label>
         <div class="psl-fields" hidden>
@@ -61,6 +61,10 @@
         <div class="f2">
           <label>How will you practice?<select name="practice_type"><option value="">Choose one</option><option value="solo">On my own</option><option value="group">Only as part of a group practice</option><option value="both">Both</option></select></label>
           <label>Group practice name, if any<input name="group_name" type="text" maxlength="150"></label>
+        </div>
+        <div class="group-fields" hidden>
+          <label>Is your group practice enrolled with MassHealth?<select name="group_mh_enrolled"><option value="">Choose one</option><option value="yes">Yes</option><option value="no">No</option><option value="not_sure">Not sure</option></select></label>
+          <div class="f2"><label>Group NPI, if you know it<input name="group_npi" inputmode="numeric" maxlength="10"></label><label>Group MassHealth provider ID, if you know it<input name="group_mh_id" maxlength="20"></label></div>
         </div>
         <div class="f2">
           <label>For taxes, your practice is…<span class="hint">For the W-9. A single-member LLC counts as "individual."</span><select name="tax_class"><option value="individual">Individual / sole proprietor (most doulas)</option><option value="llc">LLC with more than one member</option><option value="other">Something else</option></select></label>
@@ -79,12 +83,31 @@
           <select name="pathway" required><option value="">Choose one</option><option value="training">A doula training certificate or certifying organization</option><option value="experience">Recommendations (experience pathway)</option><option value="not_sure">Not sure yet</option></select></label>
         <div class="f2"><label>Doula training program, if any<input name="training_program" type="text" maxlength="200"></label><label>Date you finished it<input name="training_date" type="date" ></label></div>
         <label>Certifying organization, if any<input name="certifying_org" type="text" maxlength="150" placeholder="e.g. DONA International"></label>
+        <div class="training-fields">
+          <label>About how many hours was your doula training?<input name="training_hours" inputmode="numeric" maxlength="5" placeholder="e.g. 40"></label>
+          <fieldset class="checks"><legend style="font-size:16px">Did your training cover these topics? (MassHealth requires all four)</legend>
+            <label class="check"><input type="checkbox" name="comp_anatomy" value="yes"> Pregnancy anatomy and physiology, including basic fetal development</label>
+            <label class="check"><input type="checkbox" name="comp_interventions" value="yes"> Common medical interventions during pregnancy, birth and postpartum</label>
+            <label class="check"><input type="checkbox" name="comp_complications" value="yes"> Common complications, including pregnancy and infant loss</label>
+            <label class="check"><input type="checkbox" name="comp_comfort_newborn" value="yes"> Labor comfort measures and basic newborn care</label>
+          </fieldset>
+        </div>
         <label>If using recommendations: do you have 3 past clients and 2 health care providers who could recommend you?<select name="recommenders_ready"><option value="">Choose one</option><option value="yes">Yes</option><option value="some">Some of them</option><option value="no">Not yet</option></select><span class="hint">We'll ask for their contact details later, only if you choose this path.</span></label>
+        <div class="rec-fields" hidden>
+          <p class="hint" style="margin:0">For the experience pathway, MassHealth needs recommendation forms from 3 past clients and 2 licensed health care providers (like a midwife, nurse or physician) who saw your work in the last 5 years. Add who you'd like to ask. We'll only contact them to request your recommendation.</p>
+          <label>Past client 1 (name, and phone or email)<input name="rec_client_1" maxlength="200"></label>
+          <label>Past client 2<input name="rec_client_2" maxlength="200"></label>
+          <label>Past client 3<input name="rec_client_3" maxlength="200"></label>
+          <label>Health care provider 1 (name, role, and phone or email)<input name="rec_provider_1" maxlength="200"></label>
+          <label>Health care provider 2<input name="rec_provider_2" maxlength="200"></label>
+        </div>
       </fieldset>
 
       <fieldset><legend>Anything else</legend>
         <label>Questions or anything we should know<textarea name="notes" rows="3" maxlength="2000"></textarea></label>
       </fieldset>
+
+      <div class="safe" style="background:var(--sky);border-left-color:var(--accent)"><b style="color:var(--ink)">Certificates</b><p>After submitting, please email your doula training certificate and your MassHealth training certificate to <b>paidtocarema@gmail.com</b>. They go in your application.</p></div>
 
       <fieldset><legend>Who MassHealth contacts</legend>
         <label>If MassHealth has questions about your disclosure form, who should they contact?<select name="mh_contact"><option value="me">Me</option><option value="ptc">Paid to Care MA (Derek)</option></select></label>
@@ -115,6 +138,6 @@
   <p>Privacy: this site doesn't use cookies or analytics.</p>
 </div></footer>
 <script src="nav.js?v=2"></script>
-<script src="intake.js?v=3"></script>
+<script src="intake.js?v=4"></script>
 </body>
 </html>
