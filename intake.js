@@ -2,16 +2,19 @@
 // Never collects SSN, tax ID, date of birth, bank or client information.
 (function () {
   const ENDPOINT = "https://paid-to-care-leads.paidtocare.workers.dev";
+  // Show the practice-address fields only when it differs from the mailing address.
+  const pslToggle = () => { const box = document.querySelector(".psl-fields"); if (box) box.hidden = document.querySelector("[name=psl_same]").value !== "no"; };
   const SSN_LIKE = /\b\d{3}[-\s.]?\d{2}[-\s.]?\d{4}\b/;
   const form = document.querySelector("form.intake");
   if (!form) return;
+  form.psl_same.addEventListener("change", pslToggle); pslToggle();
   const msg = form.querySelector(".form-msg");
   const show = (t) => { msg.textContent = t; msg.className = "form-msg bad"; };
 
   // Warn immediately if anything looks like a Social Security / tax ID number.
   form.addEventListener("input", (e) => {
     const el = e.target;
-    if (!el.name || /^(phone|npi|zip)$/.test(el.name)) return;
+    if (!el.name || /^(phone|fax|npi|zip|psl_zip|date_of_birth)$/.test(el.name)) return;
     const bad = SSN_LIKE.test(el.value || "");
     el.setCustomValidity(bad ? "Please don't enter Social Security or tax ID numbers." : "");
     el.classList.toggle("sensitive", bad);
@@ -23,7 +26,7 @@
     e.preventDefault();
     const d = Object.fromEntries(new FormData(form));
     for (const [k, v] of Object.entries(d)) {
-      if (!/^(phone|npi|zip)$/.test(k) && SSN_LIKE.test(v)) return show("Please remove anything that looks like a Social Security or tax ID number.");
+      if (!/^(phone|fax|npi|zip|psl_zip|date_of_birth)$/.test(k) && SSN_LIKE.test(v)) return show("Please remove anything that looks like a Social Security or tax ID number.");
     }
     const missing = [["first_name", "first name"], ["last_name", "last name"], ["email", "email"], ["phone", "phone"],
       ["street", "mailing address"], ["city", "city"], ["state", "state"], ["zip", "ZIP code"], ["pathway", "proof of training"], ["esign", "your typed name"]]
